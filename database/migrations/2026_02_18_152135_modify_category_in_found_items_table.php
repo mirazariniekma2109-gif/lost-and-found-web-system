@@ -1,0 +1,20 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
+
+return new class extends Migration
+{
+    public function up(): void
+{
+    // Kita guna statement SQL terus supaya tak payah install composer dbal
+    DB::statement('ALTER TABLE found_items MODIFY category VARCHAR(255) NULL');
+}
+
+public function down(): void
+{
+    DB::statement('ALTER TABLE found_items MODIFY category VARCHAR(255) NOT NULL');
+}
+};
