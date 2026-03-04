@@ -27,5 +27,4 @@ RUN echo '<Directory "/var/www/public">\nAllowOverride All\n</Directory>' >> /et
 # Fix permissions dan bersihkan cache Laravel
 RUN chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache && \
     php artisan config:clear && \
-    php artisan cache:clear && \
-    php artisan view:clear
+    php artisan cache:clear
