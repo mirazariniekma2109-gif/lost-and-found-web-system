@@ -24,5 +24,8 @@ ENV APACHE_DOCUMENT_ROOT /var/www/public
 RUN sed -ri -e 's!/var/www/html!/var/www/public!g' /etc/apache2/sites-available/000-default.conf
 RUN echo '<Directory "/var/www/public">\nAllowOverride All\n</Directory>' >> /etc/apache2/apache2.conf
 
-# Permissions
-RUN chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache
+# Fix permissions dan bersihkan cache Laravel
+RUN chown -R www-data:www-data /var/www/storage /var/www/bootstrap/cache && \
+    php artisan config:clear && \
+    php artisan cache:clear && \
+    php artisan view:clear
