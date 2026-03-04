@@ -16,8 +16,4 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withExceptions(function (Exceptions $exceptions) {
         //
     })
-    ->withProviders([
-        // Kita biarkan kosong, Laravel akan auto-discover yang lain 
-        // kecuali yang kita dah 'ignore' dalam composer.json
-    ])
     ->create();
