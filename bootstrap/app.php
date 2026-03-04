@@ -16,8 +16,8 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withExceptions(function (Exceptions $exceptions) {
         //
     })
-    // TAMBAH INI: Paksa Laravel abaikan Pail jika kelas tidak wujud
-    ->withRegisteredProviders([
-        \App\Providers\AppServiceProvider::class,
+    ->withProviders([
+        // Kita biarkan kosong, Laravel akan auto-discover yang lain 
+        // kecuali yang kita dah 'ignore' dalam composer.json
     ])
     ->create();
